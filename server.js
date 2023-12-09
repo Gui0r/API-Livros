@@ -94,3 +94,6 @@ Http.onreadystatechange = (e) => {
 }
 */
 
+
+
+//tem erros de endereço nas funções PUT e POST
