@@ -22,7 +22,7 @@ server.get('/livro', (req, res) => {
 server.post('/livro', (req, res) => {
     const novoLivro = req.body;
 
-    if (!novoLivro.id || !novoLivro.titulo || !novoLivro.autor || !novoLivro.ano_de_publicacao || !novoLivro.genero) {
+    if (!novoLivro.id || !novoLivro.Titulo || !novoLivro.autor || !novoLivro.ano_de_publicacao || !novoLivro.genero) {
         return res.status(400).json({ mensagem: "Dados incompletos, tente novamente." });
     } else {
         dados.Livro.push(novoLivro);
@@ -36,7 +36,7 @@ server.put('/livro/:id', (req, res) => {
     const livroId = parseInt(req.params.id);
     const atualizarLivro = req.body;
 
-    const idLivro = dados.Livro.findIndex((livro) => livro.id === livroId);
+    const idLivro = dados.livro.findIndex((livro) => livro.id === livroId);
 
     if (idLivro === -1) {
         return res.status(404).json({ mensagem: "Livro não encontrado" });
@@ -48,7 +48,7 @@ server.put('/livro/:id', (req, res) => {
 
         salvarDados();
 
-        return res.json({ mensagem: "Livro atualizado com sucesso", Livro: dados.Livro[idLivro] });
+        return res.json({ mensagem: "Livro atualizado com sucesso", livro: dados.livros[idLivro] });
     }
 });
 
@@ -56,7 +56,7 @@ server.put('/livro/:id', (req, res) => {
 server.delete('/livro/:id', (req, res) => {
     const livroId = parseInt(req.params.id);
 
-    dados.Livro = dados.Livro.filter((livro) => livro.id !== livroId);
+    dados.Livro = dados.Livro.filter((Livro) => Livro.id !== livroId);
 
     salvarDados();
 
@@ -66,11 +66,31 @@ server.delete('/livro/:id', (req, res) => {
 // Consulta de livro por titulo
 server.get('/livro/pesquisa/:titulo', (req, res) => {
     const pesquisaTitulo = req.params.titulo.toLowerCase();
-    const livroEncontrado = dados.Livro.find(livro => livro.titulo.toLowerCase() === pesquisaTitulo);
+    let livroEncontrado = null;
+
+    for (const livro of dados.Livro) {
+        if (livro && livro.titulo && livro.titulo.toLowerCase() === pesquisaTitulo) {
+            livroEncontrado = livro;
+            break;
+        }
+    }
 
     if (!livroEncontrado) {
         return res.status(404).json({ mensagem: "Livro não encontrado" });
     } else {
-        return res.json(dados.titulo);
+        return res.json(livroEncontrado);
     }
 });
+
+/*
+const Http = new XMLHttpRequest();
+const url='https://api.chucknorris.io/jokes/random';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+    var resultado = JSON.parse(Http.responseText)
+    console.log(resultado)
+}
+*/
+
