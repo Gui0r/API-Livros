@@ -1,0 +1,25 @@
+{
+    "Livro": [
+      {
+        "id": 1,
+        "Titulo": "Al mosso",
+        "autor": "robocop",
+        "ano_de_publicação": 2005,
+        "gênero": "terror"
+      },
+      {
+        "id": 2,
+        "Titulo": "Meninolevado",
+        "autor": "Nicolas",
+        "ano_de_publicação": 2013,
+        "gênero": "terror"
+      },
+      {
+        "id": 3,
+        "Titulo": "Eu amo pinta o cabelo",
+        "autor": "bluezao",
+        "ano_de_publicação": 2019,
+        "gênero": "terror"
+      }
+    ]
+}
