@@ -10,8 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.2"
   },
-  "description": "```\r npm install node\r ```\r ### instale o express\r ```\r npm install express\r ```",
-  "devDependencies": {}
+  "description": ""
 }

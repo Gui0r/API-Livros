@@ -1,10 +1,27 @@
+```
+ <script>
+      var cards = document.querySelector("section.cards");
 
-INSERT INTO `Tabela 1` (nome, idade, cidade, email) VALUES ('cleide', '14', 'robarinho', 'eunaosei@gmail.com');
-SELECT * FROM `Tabela 1` LIMIT 50;
+function criaCards(){
+    const cards = document.querySelector("section.cards");
+    for (let index = 0; index < objCards.length; index++) {
+        var singleCard = document.createElement("div");
+        singleCard.classList.add("single-card","col","col-md-3", "bg-body", "d-flex", "flex-nowrap", "flex-column", "gap-1", "justify-content-center");
 
-UPDATE `Tabela 1` SET nome = 'paulão' WHERE id = 0000000002;
-SELECT * FROM `Tabela 1` LIMIT 50;
+        var image = document.createElement("img");
+        image.src = objCards[index]["imagem"];
+        var h2 = document.createElement("h2");
+        h2.innerHTML = objCards[index]["titulo"];
+        var pe = document.createElement("p");
+        pe.innerHTML = objCards[index]["desc"];;
 
-SELECT * FROM `Tabela 1` LIMIT 50;
-DELETE FROM `Tabela 1` WHERE nome = 'paulão';
-SELECT * FROM `Tabela 1` LIMIT 50;
+        singleCard.appendChild(image);
+        singleCard.appendChild(h2);
+        singleCard.appendChild(pe);
+        cards.appendChild(singleCard);
+    }
+}
+
+
+  </script>
+  ```

@@ -18,9 +18,13 @@ npm start
 
 crie um workspace e use esse linha para o GET para testes
 
-http://127.0.0.1:3000/livro/pesquisa/"titulo do livro que voce deseja pesquisar"(tem que estar dentro do JSON)
+http://127.0.0.1:3000/livro/pesquisa/"titulo do livro que voce deseja pesquisar"(tem que estar dentro do JSON)  
 
-caso queira atualizar as informações ou adicionar novas
+caso queira atualizar as informações
+
+troque o endereço pois o livro e atualizado por Id 
+
+http://127.0.0.1:3000/livro/"Id do livro"
 
 ### troque para Body
 
@@ -63,6 +67,8 @@ caso queira atualizar as informações ou adicionar novas
 
 ```
 
-### agora so trocar a função de GET para POST ou PUT e fazer as alterações
+### agora so trocar a função de GET para PUT
+
+para o post é so retirar o Id do livro e no terminal adicionar um quarto livro
 
 ### para deletar também so repetir a mesma função do GET, so trocando o GET para DELETE e botando no endereço o livro que você deseja deletar

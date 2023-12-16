@@ -10,8 +10,10 @@ function salvarDados() {
 }
 
 server.listen(3000, () => {
-    console.log("Servidor está funcionando!");
+    console.log("Bombo!");
 });
+
+
 
 // Get
 server.get('/livro', (req, res) => {
@@ -94,18 +96,4 @@ server.get('/livro/pesquisa/:titulo', (req, res) => {
     }
 });
 
-/*
-const Http = new XMLHttpRequest();
-const url='https://api.chucknorris.io/jokes/random';
-Http.open("GET", url);
-Http.send();
 
-Http.onreadystatechange = (e) => {
-    var resultado = JSON.parse(Http.responseText)
-    console.log(resultado)
-}
-*/
-
-
-
-//tem erros de endereço nas funções PUT e POST
